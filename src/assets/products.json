@@ -1,0 +1,164 @@
+[
+    {
+        "image": "Burger.png",
+        "name": "The Sassburger",
+        "description": "Get ready to bite into the sassiest, juiciest burger in town, topped with attitude and extra cheese.",
+        "price": "$7.99"
+    },
+    {
+        "image": "Buritto.png",
+        "name": "Rollin' Rascal",
+        "description": "Spice up your life with this feisty burrito, packed with flavor and a little bit of mischief.",
+        "price": "$6.50"
+    },
+    {
+        "image": "Cake.png",
+        "name": "Sweet Diva",
+        "description": "Indulge in a sinfully delicious cake that knows it's the queen of the dessert world.",
+        "price": "$12.95"
+    },
+    {
+        "image": "Carrot.png",
+        "name": "Crunchy Wisecrackers",
+        "description": "Fresh, zesty carrots with a side of sass, perfect for a guilt-free snacking experience.",
+        "price": "$2.50"
+    },
+    {
+        "image": "Chef.png",
+        "name": "Chef Cheekster",
+        "description": "Our talented chef serves up dishes with a twist of humor and a heaping spoonful of personality.",
+        "price": "Priceless"
+    },
+    {
+        "image": "Cofee.png",
+        "name": "Snarky Sipper",
+        "description": "Wake up to a bold, invigorating coffee that's not afraid to tell it like it is.",
+        "price": "$4.25"
+    },
+    {
+        "image": "Cookies.png",
+        "name": "Smarty Pants Bites",
+        "description": "Get a taste of brilliance with these delightful, know-it-all cookies that always have the last word.",
+        "price": "$3.75"
+    },
+    {
+        "image": "Croisant.png",
+        "name": "Crispy Quipster",
+        "description": "A flaky, buttery croissant that'll make you grin with every bite, perfect for a cheeky breakfast.",
+        "price": "$3.50"
+    },
+    {
+        "image": "CupCake.png",
+        "name": "Frosted Funnies",
+        "description": "Enjoy these sassy cupcakes that'll make your taste buds giggle and your belly happy.",
+        "price": "$4.99"
+    },
+    {
+        "image": "Donut.png",
+        "name": "Daring Doughnut",
+        "description": "This doughnut isn't afraid to be bold, bringing you a daring, irresistible flavor you can't resist.",
+        "price": "$2.95"
+    },
+    {
+        "image": "EggBacon.png",
+        "name": "Witty Wakey-Wakey",
+        "description": "Start your morning with a smile with our delectable eggs and bacon, cooked with a side of wit.",
+        "price": "$8.25"
+    },
+    {
+        "image": "Eggplant.png",
+        "name": "Dicklosaur",
+        "description": "Get a kick out of this mischievous dickfruit dish that'll leave you craving more.",
+        "price": "$5.99"
+    },
+    {
+        "image": "Float.png",
+        "name": "Floating Giggles",
+        "description": "Sip on the bubbliest and funniest float around, guaranteed to make you giggle with every gulp.",
+        "price": "$5.50"
+    },
+    {
+        "image": "Fries.png",
+        "name": "Fabulous Friestas",
+        "description": "Golden, crispy, and fabulous - these fries know they're the life of the party.",
+        "price": "$3.25"
+    },
+    {
+        "image": "HotDog.png",
+        "name": "Saucy Frankfurter",
+        "description": "Nothing can keep up with this zesty hot dog that's bursting with flavor and a bit of sass.",
+        "price": "$5.50"
+    },
+    {
+        "image": "IceCream.png",
+        "name": "Scoops of Smirks",
+        "description": "Satisfy your sweet tooth with a cone of smirky ice cream, so good it'll have you smirking too.",
+        "price": "$4.75"
+    },
+    {
+        "image": "LolipopSwirl.png",
+        "name": "Spiral Snickers",
+        "description": "Get ready to swirl and laugh with this colorful, hilarious lollipop that'll leave you in stitches.",
+        "price": "$2.25"
+    },
+    {
+        "image": "Lolipop.png",
+        "name": "Sassy Suckers",
+        "description": "These bold, outspoken lollipops will leave your taste buds entertained and craving more.",
+        "price": "$1.50"
+    },
+    {
+        "image": "Macaroon.png",
+        "name": "Macaroon Mischief",
+        "description": "Delight in these mischievous, delectable macaroons that know how to make a lasting impression.",
+        "price": "$6.99"
+    },
+    {
+        "image": "Meat.png",
+        "name": "Chuckle Chops",
+        "description": "Enjoy these tender, juicy chops that'll have you laughing all the way through dinner.",
+        "price": "$17.99"
+    },
+    {
+        "image": "Pancake.png",
+        "name": "Flippin' Funnycakes",
+        "description": "Start your day with a stack of fluffy pancakes that'll flip your mood and make you chuckle.",
+        "price": "$7.50"
+    },
+    {
+        "image": "Pizza.png",
+        "name": "Pizzazza",
+        "description": "This pizza has a personality as big as its flavor - enjoy a slice that'll make your taste buds dance with excitement.",
+        "price": "$12.50"
+    },
+    {
+        "image": "Popsicle.png",
+        "name": "Icy Wisecracks",
+        "description": "Cool down with a popsicle that's as refreshing as it is clever, perfect for a hot summer day.",
+        "price": "$3.00"
+    },
+    {
+        "image": "Pretzel.png",
+        "name": "Twisted Chuckler",
+        "description": "Bite into a twisted, salty, and hilarious pretzel that'll leave you craving for more laughs and flavor.",
+        "price": "$2.75"
+    },
+    {
+        "image": "Steak.png",
+        "name": "Sir Loin-a-Lot",
+        "description": "Indulge in a juicy, mouthwatering steak that's so good, it'll have you cracking jokes at the dinner table.",
+        "price": "$24.99"
+    },
+    {
+        "image": "SushiCaviar.png",
+        "name": "Rolling Guffaws",
+        "description": "Dive into a plate of sushi with a side of caviar that'll have you rolling in laughter with every bite.",
+        "price": "$18.50"
+    },
+    {
+        "image": "Taco.png",
+        "name": "Witty Crunchwrap",
+        "description": "Get ready to crunch into this tasty taco that's loaded with flavor and a touch of humor.",
+        "price": "$5.75"
+    }
+]
