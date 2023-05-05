@@ -4,11 +4,23 @@ import NavBar from './Components/NavBar'
 import Menu from './Components/Menu'
 import { Routes, Route } from 'react-router-dom'
 import Cart from './Components/Cart'
-import products from './assets/products.json'
+import productList from './assets/products.json'
+import { v4 as uuidv4 } from 'uuid'
+import { useEffect } from 'react'
 
 function App() {
     const [cartOpen, setCartOpen] = useState(false)
     const [chosenProducts, setChosenProducts] = useState([])
+
+    const [products, setProducts] = useState(productList)
+
+    useEffect(() => {
+        setProducts((prevState) => {
+            return prevState.map((element) => {
+                return { ...element, id: uuidv4() }
+            })
+        })
+    }, [])
 
     return (
         <>

@@ -27,7 +27,6 @@ const products = [
 export default function Cart({ cartState, onCartOpen }) {
     return (
         <>
-            {console.log(cartState)}
             <Transition.Root show={cartState} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={onCartOpen}>
                     <Transition.Child

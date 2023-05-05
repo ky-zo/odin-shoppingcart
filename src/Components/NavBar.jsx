@@ -25,7 +25,7 @@ const NavBar = ({ onCartOpen }) => {
             </nav>
             <div className="flex justify-end">
                 <button onClick={() => onCartOpen(true)}>
-                    <ShoppingCartIcon className="w-10" />
+                    <ShoppingCartIcon className="w-10 p-1 mr-2" />
                 </button>
             </div>
         </header>
