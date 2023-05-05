@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom'
 import Floaters from './Floaters'
 
-function Home() {
+function Home({ products }) {
     return (
         <>
             <div className="flex flex-col align-middle">
@@ -9,9 +10,13 @@ function Home() {
                         Best fucking food.
                         <br /> Nothing else matters.
                     </h1>
-                    <button className="px-5 py-3 bg-purple-500 text-white font-semibold rounded-full shadow-md transition duration-300 ease-in-out hover:bg-white hover:text-purple-500 hover:border-purple-500 border-2 border-transparent focus:outline-none">
+
+                    <Link
+                        to="/menu"
+                        className="px-5 py-3 bg-purple-500 text-white font-semibold rounded-md shadow-md transition duration-300 ease-in-out hover:bg-white hover:text-purple-500 hover:border-purple-500 border-2 border-transparent focus:outline-none"
+                    >
                         Order the goodies
-                    </button>
+                    </Link>
                     <div className="grid grid-cols-1 items-center justify-items-center sm:flex sm:items-center sm:justify-center">
                         <img src="https://ky-zo.github.io/odin-food/984a48ca8a9a133f68cc.png" className="w-24 h-auto" />
                         <div className="w-9/12 sm:w-2/5 max-2 flex flex-col gap-5 justify-between">
@@ -24,7 +29,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <Floaters />
+            <Floaters products={products} />
         </>
     )
 }

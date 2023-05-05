@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import products from '../assets/products.json'
 
-function Floaters() {
+function Floaters({ products }) {
     const [foods, setFoods] = useState([])
 
     const image1 = useRef()
@@ -62,11 +61,11 @@ function Floaters() {
 
     return (
         <>
-            <img ref={image1} src={getRandomFood()} className="food-image fixed max-w-[100px] pointer-events-none -z-50" alt="food" />
-            <img ref={image2} src={getRandomFood()} className="food-image fixed max-w-[100px] pointer-events-none -z-50" alt="food" />
-            <img ref={image3} src={getRandomFood()} className="food-image fixed max-w-[100px] pointer-events-none -z-50" alt="food" />
-            <img ref={image4} src={getRandomFood()} className="food-image fixed max-w-[100px] pointer-events-none -z-50" alt="food" />
-            <img ref={image5} src={getRandomFood()} className="food-image fixed max-w-[100px] pointer-events-none -z-50" alt="food" />
+            <img ref={image1} src={getRandomFood()} className="food-image fixed max-w-[100px] -z-50 opacity-50" alt="food" />
+            <img ref={image2} src={getRandomFood()} className="food-image fixed max-w-[100px] -z-50  opacity-50" alt="food" />
+            <img ref={image3} src={getRandomFood()} className="food-image fixed max-w-[100px] -z-50 opacity-50" alt="food" />
+            <img ref={image4} src={getRandomFood()} className="food-image fixed max-w-[100px] -z-50 opacity-50" alt="food" />
+            <img ref={image5} src={getRandomFood()} className="food-image fixed max-w-[100px] -z-50 opacity-50" alt="food" />
         </>
     )
 }
