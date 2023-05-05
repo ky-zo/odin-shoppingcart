@@ -1,6 +1,6 @@
 import MenuItem from './MenuItem'
 
-const Menu = ({ products }) => {
+const Menu = ({ products, onProductChange }) => {
     return (
         <>
             <div className="flex flex-col gap-12 items-center py-12">
@@ -12,6 +12,8 @@ const Menu = ({ products }) => {
                             name={product.name}
                             description={product.description}
                             price={product.price}
+                            quantity={product.quantity}
+                            onProductChange={onProductChange}
                         />
                     )
                 })}
