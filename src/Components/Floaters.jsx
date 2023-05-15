@@ -15,7 +15,7 @@ function Floaters({ products }) {
         }
 
         loadImages()
-    }, [])
+    }, [products])
 
     function getRandomFood() {
         const randomIndex = Math.floor(Math.random() * foods.length)

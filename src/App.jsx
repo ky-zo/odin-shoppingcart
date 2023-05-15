@@ -13,7 +13,6 @@ function App() {
     const [cartOpen, setCartOpen] = useState(false)
     const [products, setProducts] = useState([])
     const [chosenProducts, setChosenProducts] = useState([])
-    const [numberOfChosedProducts, setNumberOfChosenProducts] = useState(0)
 
     useEffect(() => {
         setProducts(productList)
