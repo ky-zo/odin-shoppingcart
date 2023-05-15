@@ -7,27 +7,54 @@ import Cart from './Components/Cart'
 import productList from './assets/products.json'
 import { v4 as uuidv4 } from 'uuid'
 import { useEffect } from 'react'
+import Contact from './Components/Contact'
 
 function App() {
     const [cartOpen, setCartOpen] = useState(false)
-    const [products, setProducts] = useState(productList)
+    const [products, setProducts] = useState([])
+    const [chosenProducts, setChosenProducts] = useState([])
+    const [numberOfChosedProducts, setNumberOfChosenProducts] = useState(0)
 
     useEffect(() => {
+        setProducts(productList)
         setProducts((prevState) => {
             return prevState.map((element) => {
-                return { ...element, id: uuidv4(), quantity: 0 }
+                return { ...element, key: uuidv4(), quantity: 0 }
             })
         })
     }, [])
 
+    useEffect(() => {
+        setChosenProducts(() => {
+            return products.filter((product) => product.quantity > 0)
+        })
+    }, [products])
+
+    function handleQuantityChange(id, add = true, clearQuantity = false) {
+        setProducts((prevState) => {
+            return prevState.map((product) => {
+                if (!(product.id === id)) return product //id passed to a function is not the product's id, then return the previous value
+                if (clearQuantity) return { ...product, quantity: 0 }
+                if (add) {
+                    setNumberOfChosenProducts((prevState) => prevState + 1)
+                    return { ...product, quantity: product.quantity + 1 } //if add = true, then add 1 to product quantity
+                } else {
+                    if (product.quantity === 0) return product // if product quantity equals 0, you can't subtract
+                    setNumberOfChosenProducts((prevState) => prevState - 1)
+                    return { ...product, quantity: product.quantity - 1 } //if add = false, then subtractk 1 from product quantity
+                }
+            })
+        })
+    }
+
     return (
         <>
-            <NavBar onCartOpen={setCartOpen} />
-            <Cart cartState={cartOpen} onCartOpen={setCartOpen} />
+            <NavBar onCartOpen={setCartOpen} chosenProducts={chosenProducts} />
+            <Cart chosenProducts={chosenProducts} cartState={cartOpen} onCartOpen={setCartOpen} onQuantityChange={handleQuantityChange} />
             <Routes>
                 <Route path="/" element={<Home products={products} />} />
-                <Route path="/menu" element={<Menu products={products} onProductChange={setProducts} />} />
-                <Route path="/contact" element={<h1>Contact</h1>} />
+                <Route path="/menu" element={<Menu products={products} onQuantityChange={handleQuantityChange} />} />{' '}
+                <Route path="/contact" element={<Contact />} />
                 <Route path="/*" element={<h1>404.You lost? Get back</h1>} />
             </Routes>
         </>

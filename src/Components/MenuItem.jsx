@@ -1,12 +1,45 @@
-const MenuItem = ({ id, image, name, description, price, quantity, onProductChange }) => {
-    // function addFirstProduct() {
-    //     onProductChange((prevState) => {
-    //         prevState.filter((product) => {
-    //             if (!(product.id === id)) return { ...prevState }
-    //             return { ...prevState, quantity: 1 }
-    //         })
-    //     })
-    // }
+import { useEffect, useState } from 'react'
+
+const AddButton = ({ id, onQuantityChange }) => {
+    return (
+        <div>
+            <button
+                className="rounded-md border border-purple-500 px-4 py-1 text-base font-medium text-purple-500 shadow-sm hover:bg-purple-500 hover:text-white transition-all"
+                onClick={() => onQuantityChange(id, true)}
+            >
+                Add
+            </button>
+        </div>
+    )
+}
+
+const PlusMinusButton = ({ id, quantity, onQuantityChange }) => {
+    return (
+        <div className="flex gap-2 items-center">
+            <button
+                className="rounded-md border border-purple-500 px-2 text-base font-medium text-purple-500 shadow-sm hover:bg-purple-500 hover:text-white transition-all"
+                onClick={() => onQuantityChange(id, false)}
+            >
+                -
+            </button>
+            <div>{quantity}</div>
+            <button
+                className="rounded-md border border-purple-500 px-2 text-base font-medium text-purple-500 shadow-sm hover:bg-purple-500 hover:text-white transition-all"
+                onClick={() => onQuantityChange(id, true)}
+            >
+                +
+            </button>
+        </div>
+    )
+}
+
+const MenuItem = ({ id, image, name, description, price, quantity, onQuantityChange }) => {
+    const [itemsButton, setItemsButton] = useState(<AddButton id={id} onQuantityChange={onQuantityChange} />)
+
+    useEffect(() => {
+        if (quantity === 0) return setItemsButton(<AddButton id={id} onQuantityChange={onQuantityChange} />)
+        setItemsButton(<PlusMinusButton id={id} quantity={quantity} onQuantityChange={onQuantityChange} />)
+    }, [quantity])
 
     return (
         <>
@@ -19,21 +52,8 @@ const MenuItem = ({ id, image, name, description, price, quantity, onProductChan
                     <p className="menuItem-descP font-light text-xs sm:text-sm">{description}</p>
                 </div>
                 <div className="flex flex-col justify-center gap-1">
-                    <div className="">{price}</div>
-                    <div>
-                        <button className="rounded-md border border-purple-500 px-4 py-1 text-base font-medium text-purple-500 shadow-sm hover:bg-purple-500 hover:text-white transition-all">
-                            Add
-                        </button>
-                    </div>
-                    <div className="flex gap-2 items-center">
-                        <button className="rounded-md border border-purple-500 px-2 text-base font-medium text-purple-500 shadow-sm hover:bg-purple-500 hover:text-white transition-all">
-                            -
-                        </button>
-                        <div>{quantity}</div>
-                        <button className="rounded-md border border-purple-500 px-2 text-base font-medium text-purple-500 shadow-sm hover:bg-purple-500 hover:text-white transition-all">
-                            +
-                        </button>
-                    </div>
+                    <div className="">{price}€</div>
+                    {itemsButton}
                 </div>
             </div>
         </>

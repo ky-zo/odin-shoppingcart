@@ -1,30 +1,20 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon, ShoppingCartIcon } from '@heroicons/react/24/outline'
+import { useEffect } from 'react'
 
-const products = [
-    {
-        id: 1,
-        name: 'Throwback Hip Bag',
-        href: '#',
-        color: 'Get ready to bite into the sassiest, juiciest burger in town, topped with attitude and extra cheese.',
-        price: '$90.00',
-        quantity: 1,
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
-    },
-    {
-        id: 2,
-        name: 'Medium Stuff Satchel',
-        href: '#',
-        color: 'Blue',
-        price: '$32.00',
-        quantity: 1,
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
-        imageAlt: 'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
-    },
-]
+export default function Cart({ chosenProducts, cartState, onCartOpen, onQuantityChange }) {
+    const [subTotal, setSubTotal] = useState(0)
 
-export default function Cart({ cartState, onCartOpen }) {
+    useEffect(() => {
+        let helperSum = 0
+        if (!chosenProducts) return
+        chosenProducts.forEach((element) => {
+            helperSum += element.quantity * element.price
+        })
+        setSubTotal(helperSum)
+    }, [chosenProducts])
+
     return (
         <>
             <Transition.Root show={cartState} as={Fragment}>
@@ -57,7 +47,7 @@ export default function Cart({ cartState, onCartOpen }) {
                                         <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                                             <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                                                 <div className="flex items-start justify-between">
-                                                    <Dialog.Title className="text-lg font-bold text-gray-900">Shopping cart</Dialog.Title>
+                                                    <Dialog.Title className="text-lg font-bold text-gray-900">Order Goodies</Dialog.Title>
                                                     <div className="ml-3 flex h-7 items-center">
                                                         <button
                                                             type="button"
@@ -73,12 +63,11 @@ export default function Cart({ cartState, onCartOpen }) {
                                                 <div className="mt-8">
                                                     <div className="flow-root">
                                                         <ul role="list" className="-my-6 divide-y divide-gray-200">
-                                                            {products.map((product) => (
+                                                            {chosenProducts.map((product) => (
                                                                 <li key={product.id} className="flex py-6">
                                                                     <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                                                         <img
-                                                                            src={product.imageSrc}
-                                                                            alt={product.imageAlt}
+                                                                            src={`/images/${product.image}`}
                                                                             className="h-full w-full object-cover object-center"
                                                                         />
                                                                     </div>
@@ -89,19 +78,43 @@ export default function Cart({ cartState, onCartOpen }) {
                                                                                 <h3>
                                                                                     <a href={product.href}>{product.name}</a>
                                                                                 </h3>
-                                                                                <p className="ml-4">{product.price}</p>
+                                                                                <p className="ml-4">{product.price}€</p>
                                                                             </div>
-                                                                            <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                                                                            <p className="mt-1 text-xs text-gray-500">
+                                                                                {product.description}
+                                                                            </p>
                                                                         </div>
                                                                         <div className="flex flex-1 items-end justify-between text-sm">
-                                                                            <p className="text-gray-500">Qty {product.quantity}</p>
-
+                                                                            <div className="text-gray-500 flex gap-1">
+                                                                                Total: {product.quantity * product.price}€ for{' '}
+                                                                                <div className="flex gap-1">
+                                                                                    <button
+                                                                                        onClick={() =>
+                                                                                            onQuantityChange(product.id, false, false)
+                                                                                        }
+                                                                                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                                                                                    >
+                                                                                        -
+                                                                                    </button>
+                                                                                    <div>{product.quantity}</div>
+                                                                                    <button
+                                                                                        onClick={() =>
+                                                                                            onQuantityChange(product.id, true, false)
+                                                                                        }
+                                                                                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                                                                                    >
+                                                                                        +
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
                                                                             <div className="flex">
                                                                                 <button
-                                                                                    type="button"
+                                                                                    onClick={() =>
+                                                                                        onQuantityChange(product.id, false, true)
+                                                                                    }
                                                                                     className="font-medium text-indigo-600 hover:text-indigo-500"
                                                                                 >
-                                                                                    Remove
+                                                                                    Clear
                                                                                 </button>
                                                                             </div>
                                                                         </div>
@@ -116,7 +129,7 @@ export default function Cart({ cartState, onCartOpen }) {
                                             <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                                                 <div className="flex justify-between text-base font-medium text-gray-900">
                                                     <p>Subtotal</p>
-                                                    <p>$262.00</p>
+                                                    <p>{subTotal}€</p>
                                                 </div>
                                                 <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                                                 <div className="mt-6">

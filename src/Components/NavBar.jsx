@@ -1,8 +1,8 @@
+import ShoppingCart from './ShoppingCart'
 import logoImg from '/images/Eggplant.png'
 import { NavLink } from 'react-router-dom'
-import { ShoppingCartIcon } from '@heroicons/react/24/outline'
 
-const NavBar = ({ onCartOpen }) => {
+const NavBar = ({ onCartOpen, chosenProducts }) => {
     const menuElements = ['Home', 'Menu', 'Contact']
 
     const createURLfromMenuItem = (pageName) => {
@@ -18,14 +18,14 @@ const NavBar = ({ onCartOpen }) => {
             </div>
             <nav className="flex justify-center items-center gap-8">
                 {menuElements.map((element) => (
-                    <div key={element} className="font-semibold text-lg hover:text-purple-500 transition-all duration-300">
+                    <div key={element} className="font-semibold text-lg hover:text-purple-500 transition-all duration-300 hover:text-√ćxl">
                         <NavLink to={`${createURLfromMenuItem(element)}`}>{element}</NavLink>
                     </div>
                 ))}
             </nav>
             <div className="flex justify-end">
                 <button onClick={() => onCartOpen(true)}>
-                    <ShoppingCartIcon className="w-10 p-1 mr-2" />
+                    <ShoppingCart chosenProducts={chosenProducts} />
                 </button>
             </div>
         </header>
