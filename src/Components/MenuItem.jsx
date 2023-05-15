@@ -4,7 +4,7 @@ const AddButton = ({ id, onQuantityChange }) => {
     return (
         <div>
             <button
-                className="rounded-md border border-purple-500 px-4 py-1 text-base font-medium text-purple-500 shadow-sm hover:bg-purple-500 hover:text-white transition-all"
+                className="rounded-md border border-purple-500 px-6 text-base font-medium text-purple-500 shadow-sm hover:bg-purple-500 hover:text-white transition-all"
                 onClick={() => onQuantityChange(id, true)}
             >
                 Add
@@ -22,7 +22,7 @@ const PlusMinusButton = ({ id, quantity, onQuantityChange }) => {
             >
                 -
             </button>
-            <div>{quantity}</div>
+            <div className="w-4 text-center">{quantity}</div>
             <button
                 className="rounded-md border border-purple-500 px-2 text-base font-medium text-purple-500 shadow-sm hover:bg-purple-500 hover:text-white transition-all"
                 onClick={() => onQuantityChange(id, true)}
