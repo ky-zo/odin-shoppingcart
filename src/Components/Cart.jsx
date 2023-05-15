@@ -21,10 +21,10 @@ export default function Cart({ chosenProducts, cartState, onCartOpen, onQuantity
                 <Dialog as="div" className="relative z-10" onClose={onCartOpen}>
                     <Transition.Child
                         as={Fragment}
-                        enter="ease-in-out duration-500"
+                        enter="ease-in-out duration-300"
                         enterFrom="opacity-0"
                         enterTo="opacity-100"
-                        leave="ease-in-out duration-500"
+                        leave="ease-in-out duration-300"
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
@@ -36,10 +36,10 @@ export default function Cart({ chosenProducts, cartState, onCartOpen, onQuantity
                             <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
                                 <Transition.Child
                                     as={Fragment}
-                                    enter="transform transition ease-in-out duration-500 sm:duration-700"
+                                    enter="transform transition ease-in-out duration-100 sm:duration-200"
                                     enterFrom="translate-x-full"
                                     enterTo="translate-x-0"
-                                    leave="transform transition ease-in-out duration-500 sm:duration-700"
+                                    leave="transform transition ease-in-out duration-100 sm:duration-200"
                                     leaveFrom="translate-x-0"
                                     leaveTo="translate-x-full"
                                 >
@@ -85,36 +85,40 @@ export default function Cart({ chosenProducts, cartState, onCartOpen, onQuantity
                                                                             </p>
                                                                         </div>
                                                                         <div className="flex flex-1 items-end justify-between text-sm">
-                                                                            <div className="text-gray-500 flex gap-1">
-                                                                                Total: {product.quantity * product.price}€ for{' '}
+                                                                            <div className="text-gray-500 flex justify-between gap-1">
+                                                                                <div>
+                                                                                    Total: {(product.quantity * product.price).toFixed(2)}€
+                                                                                    for{' '}
+                                                                                </div>
                                                                                 <div className="flex gap-1">
-                                                                                    <button
-                                                                                        onClick={() =>
-                                                                                            onQuantityChange(product.id, false, false)
-                                                                                        }
-                                                                                        className="font-medium text-indigo-600 hover:text-indigo-500"
-                                                                                    >
-                                                                                        -
-                                                                                    </button>
                                                                                     <div>{product.quantity}</div>
-                                                                                    <button
-                                                                                        onClick={() =>
-                                                                                            onQuantityChange(product.id, true, false)
-                                                                                        }
-                                                                                        className="font-medium text-indigo-600 hover:text-indigo-500"
-                                                                                    >
-                                                                                        +
-                                                                                    </button>
                                                                                 </div>
                                                                             </div>
-                                                                            <div className="flex">
+
+                                                                            <div className="flex gap-3">
+                                                                                <button
+                                                                                    onClick={() =>
+                                                                                        onQuantityChange(product.id, false, false)
+                                                                                    }
+                                                                                    className="font-medium text-purple-600 rounded-md border border-purple-500 pl-2 pr-2 hover:text-purple-800"
+                                                                                >
+                                                                                    -
+                                                                                </button>
+                                                                                <button
+                                                                                    onClick={() =>
+                                                                                        onQuantityChange(product.id, true, false)
+                                                                                    }
+                                                                                    className="font-medium text-purple-600 rounded-md border border-purple-500 pl-2 pr-2 hover:text-purple-800"
+                                                                                >
+                                                                                    +
+                                                                                </button>
                                                                                 <button
                                                                                     onClick={() =>
                                                                                         onQuantityChange(product.id, false, true)
                                                                                     }
-                                                                                    className="font-medium text-indigo-600 hover:text-indigo-500"
+                                                                                    className="font-medium text-purple-600 hover:text-purple-800"
                                                                                 >
-                                                                                    Clear
+                                                                                    Delete
                                                                                 </button>
                                                                             </div>
                                                                         </div>
@@ -129,12 +133,14 @@ export default function Cart({ chosenProducts, cartState, onCartOpen, onQuantity
                                             <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                                                 <div className="flex justify-between text-base font-medium text-gray-900">
                                                     <p>Subtotal</p>
-                                                    <p>{subTotal}€</p>
+                                                    <p>{subTotal.toFixed(2)}€</p>
                                                 </div>
                                                 <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                                                 <div className="mt-6">
                                                     <a
-                                                        href="#"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        href="https://donate.stripe.com/14k8yT4d03gx9zO000"
                                                         className="flex items-center justify-center rounded-md border border-transparent bg-purple-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-purple-800"
                                                     >
                                                         Checkout

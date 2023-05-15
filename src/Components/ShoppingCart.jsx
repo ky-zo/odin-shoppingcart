@@ -23,7 +23,7 @@ const ShoppingCart = ({ chosenProducts }) => {
 
     return (
         <div className="relative">
-            <ShoppingCartIcon className="w-10 p-1" />
+            <ShoppingCartIcon className="w-8 sm:w-10 p-1" />
             <div
                 className={` ${badgeVisibilityState} bottom-0 right-0 transform translate-x-1/8 translate-y-1/8 bg-red-500 rounded-full text-white text-xs w-4 h-4 flex items-center justify-center`}
             >
