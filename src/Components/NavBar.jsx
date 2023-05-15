@@ -18,7 +18,7 @@ const NavBar = ({ onCartOpen, chosenProducts }) => {
             </div>
             <nav className="flex justify-center items-center gap-8">
                 {menuElements.map((element) => (
-                    <div key={element} className="font-semibold text-lg hover:text-purple-500 transition-all duration-300 hover:text-√ćxl">
+                    <div key={element} className="font-semibold text-lg hover:text-purple-500 transition-all duration-300 hover:text-xl">
                         <NavLink to={`${createURLfromMenuItem(element)}`}>{element}</NavLink>
                     </div>
                 ))}
