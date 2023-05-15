@@ -2,7 +2,7 @@ import React from 'react'
 
 const Contact = () => {
     return (
-        <div id="content" className="font-inter">
+        <div id="content" className="font-inter animated visible">
             <div className="contact-info flex flex-col justify-around items-center gap-0">
                 <div className="address p-12 flex flex-col gap-1">
                     <h2 className="text-2xl font-bold">Restaurant Name: Foodey Gate</h2>

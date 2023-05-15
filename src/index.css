@@ -4,6 +4,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.animated {
+    opacity: 0;
+    transform: translateY(50px);
+    filter: blur(5px);
+    transition: all 300ms ease-in-out;
+}
+
+.animated.visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
 body {
     font-family: 'Inter', sans-serif;
 }

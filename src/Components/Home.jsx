@@ -4,7 +4,7 @@ import Floaters from './Floaters'
 function Home({ products }) {
     return (
         <>
-            <div className="flex flex-col align-middle">
+            <div className="flex flex-col align-middle animated.visible">
                 <div className="flex flex-col items-center justify-center gap-12 sm:gap-24">
                     <h1 className="text-4xl sm:text-6xl font-black p-10 sm:p-0 sm:pt-24 drop-shadow-white">
                         Best fucking food.
