@@ -35,11 +35,9 @@ function App() {
                 if (!(product.id === id)) return product //id passed to a function is not the product's id, then return the previous value
                 if (clearQuantity) return { ...product, quantity: 0 }
                 if (add) {
-                    setNumberOfChosenProducts((prevState) => prevState + 1)
                     return { ...product, quantity: product.quantity + 1 } //if add = true, then add 1 to product quantity
                 } else {
                     if (product.quantity === 0) return product // if product quantity equals 0, you can't subtract
-                    setNumberOfChosenProducts((prevState) => prevState - 1)
                     return { ...product, quantity: product.quantity - 1 } //if add = false, then subtractk 1 from product quantity
                 }
             })

@@ -13,7 +13,6 @@ function Floaters({ products }) {
         function loadImages() {
             setFoods(products.map((product) => `/images/${product.image}`))
         }
-
         loadImages()
     }, [products])
 
